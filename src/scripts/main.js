@@ -2,6 +2,7 @@ import { GiffyGram } from "./GiffyGram.js"
 
 const applicationElement = document.querySelector(".giffygram")
 
+/*
 export const renderApp = () => {
     const user = parseInt(localStorage.getItem("gg_user"))
 
@@ -11,3 +12,5 @@ export const renderApp = () => {
         applicationElement.innerHTML = LoginForm()
     }
 }
+*/
+
