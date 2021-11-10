@@ -8,5 +8,21 @@ const applicationState = {
         chosenUser: null,
         displayFavorites: false,
         displayMessages: false
-    }
+    },
+    "users": []
+}
+
+export const getUsers = () => {
+    return applicationState.users.map((user) => ({...user}))
+}
+
+export const fetchUsers = () => {
+    return fetch(`${apiURL}/users`)
+        .then(response => response.json())
+        .then(
+            (serviceRequests) => {
+                // Store the external state in application state
+                applicationState.users = serviceRequests
+            }
+        )
 }
