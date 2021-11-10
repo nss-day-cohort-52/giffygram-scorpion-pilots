@@ -9,7 +9,8 @@ const applicationState = {
         displayFavorites: false,
         displayMessages: false
     },
-    "users": []
+    "users": [],
+    "posts": []
 }
 
 export const getUsers = () => {
@@ -25,4 +26,21 @@ export const fetchUsers = () => {
                 applicationState.users = serviceRequests
             }
         )
+}
+
+// create copy of POSTS from db to appState & serve copy in getPosts
+
+export const fetchPosts = () => {
+    return fetch(`${apiURL}/posts`)
+        .then(res => res.json())
+        .then(
+            (postsArray) => {
+                // Store the external state in application state
+                applicationState.posts = postsArray
+            }
+        )
+}
+
+export const getPosts = () => {
+    return applicationState.posts.map((post) => ({...post}))
 }
