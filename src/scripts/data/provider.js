@@ -34,8 +34,14 @@ export const sendPostMessage = (userPostCreation) => {
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.
+        body: JSON.stringify(userPostCreation)
     }
+    return fetch(`${apiURL}/posts`, fetchOptions)
+    .then(response => response.json())
+    .then( () => {
+        applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
+    })
+}
 // create copy of POSTS from db to appState & serve copy in getPosts
 
 export const fetchPosts = () => {

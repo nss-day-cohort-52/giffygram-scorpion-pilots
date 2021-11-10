@@ -1,4 +1,5 @@
-con
+import { sendPostMessage } from "../data/provider.js";
+
 const applicationElement = document.querySelector("#giffygram")
 
 applicationElement.addEventListener("click", clickEvent => {
@@ -6,14 +7,18 @@ applicationElement.addEventListener("click", clickEvent => {
         const userPostTitle = document.querySelector("input[name='postTitle']").value
         const userPostURL = document.querySelector("input[name='postURL']").value
         const userPostDescription = document.querySelector("input[name='postDescription']").value
+        const timestampe = new Date()
+        const userIde = parseInt(localStorage.getItem("gg_user"))
 
         const dataToSendToAPI = {
             title: userPostTitle,
             imageURL: userPostURL,
-            description: userPostDescription
+            description: userPostDescription,
+            timestamp: timestampe,
+            userId: userIde
         }
 
-        
+        sendPostMessage(dataToSendToAPI)
     }
 } )
 
