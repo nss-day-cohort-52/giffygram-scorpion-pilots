@@ -1,13 +1,9 @@
 import { GiffyGram } from "./GiffyGram.js"
 import { LoginForm } from "./auth/Login.js"
-
-const mainContainer = document.querySelector(".container")
-
-/*
+import { fetchUsers } from "./data/provider.js"
 
 const applicationElement = document.querySelector(".giffygram")
 
-/*
 export const renderApp = () => {
     const user = parseInt(localStorage.getItem("gg_user"))
 
@@ -17,10 +13,20 @@ export const renderApp = () => {
         applicationElement.innerHTML = LoginForm()
     }
 }
-*/
 
+const loadPage = () => {
+    fetchUsers().then(
+        () => {
+            return renderApp()
+        }
+    )
+}   
 
-const renderAllHTML = () => {
-    
-    mainContainer.innerHTML = GiffyGram()
-}
+loadPage()
+
+applicationElement.addEventListener(
+    "stateChanged",
+    customEvent => {
+        loadPage()
+    }
+)
