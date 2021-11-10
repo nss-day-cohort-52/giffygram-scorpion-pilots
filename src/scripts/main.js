@@ -4,7 +4,7 @@ import { fetchPosts, fetchUsers } from "./data/provider.js"
 
 const applicationElement = document.querySelector(".giffygram")
 
-const renderApp = () => {
+export const renderApp = () => {
     const user = parseInt(localStorage.getItem("gg_user"))
 
     if (user) {
