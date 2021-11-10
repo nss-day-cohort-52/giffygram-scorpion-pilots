@@ -26,3 +26,13 @@ export const fetchUsers = () => {
             }
         )
 }
+
+export const sendPostMessage = (userPostCreation) => {
+    const fetchOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.
+    }
+}
