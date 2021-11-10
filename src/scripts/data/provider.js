@@ -42,5 +42,13 @@ export const fetchPosts = () => {
 }
 
 export const getPosts = () => {
-    return applicationState.posts.map((post) => ({...post}))
+    const postsArr = applicationState.posts.map((post) => ({...post}))
+    const sortByTimeStamp = postsArr => {
+        const sorter = (a, b) => {
+            return new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
+        }
+        postsArr.sort(sorter)
+    }
+    sortByTimeStamp(postsArr)
+    return postsArr
 }
