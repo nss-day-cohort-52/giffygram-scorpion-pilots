@@ -1,10 +1,10 @@
 import { GiffyGram } from "./GiffyGram.js"
 import { LoginForm } from "./auth/Login.js"
-import { fetchUsers } from "./data/provider.js"
+import { fetchPosts, fetchUsers } from "./data/provider.js"
 
 const applicationElement = document.querySelector(".giffygram")
 
-export const renderApp = () => {
+const renderApp = () => {
     const user = parseInt(localStorage.getItem("gg_user"))
 
     if (user) {
@@ -15,8 +15,9 @@ export const renderApp = () => {
 }
 
 const loadPage = () => {
-    fetchUsers().then(
-        () => {
+    fetchUsers()
+        .then (() => fetchPosts())
+        .then(() => {
             return renderApp()
         }
     )
