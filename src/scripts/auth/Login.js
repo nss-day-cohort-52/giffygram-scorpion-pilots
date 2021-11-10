@@ -1,4 +1,5 @@
 import { getUsers } from "../data/provider.js"
+import { renderApp } from "../main.js"
 
 
 document.addEventListener("click", clickEvent => {
@@ -12,6 +13,11 @@ document.addEventListener("click", clickEvent => {
         for (const user of userState) {
             if (user.email === email && user.password === password) {
                 foundUser = user
+            } else {
+                document.getElementById("error").innerHTML = "Incorrect login credentials"
+                document.querySelector("input[name='email']").value = ""
+                document.querySelector("input[name='password']").value = ""
+                LoginForm()
             }
         }
 
@@ -35,6 +41,7 @@ export const LoginForm = () => {
                     <input type="password" name="password" placeholder="Password" />
                 </fieldset>
             </form>
+            <p id="error"></p>
             <button id="loginButton">Login</button>
         </div>
     `
