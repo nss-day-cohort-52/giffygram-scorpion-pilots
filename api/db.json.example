@@ -1,3 +1,553 @@
 {
-  "users": []
+  "users": [
+    {
+      "id": 1,
+      "name": "Ray Medrano",
+      "email": "ray@medrano.com",
+      "password": "ray"
+    },
+    {
+      "id": 2,
+      "name": "Meg Ducharme",
+      "email": "meg@ducharme.com",
+      "password": "meg"
+    },
+    {
+      "id": 3,
+      "name": "Mark Ellis",
+      "email": "mark@ellis.com",
+      "password": "mark"
+    },
+    {
+      "id": 4,
+      "name": "Daniella Agnoletti",
+      "email": "daniella@agnoletti.com",
+      "password": "daniella"
+    },
+    {
+      "id": 5,
+      "name": "Kimmy Bird",
+      "email": "kimmy@bird.com",
+      "password": "kimmy"
+    },
+    {
+      "id": 6,
+      "name": "Emily Lemmon",
+      "email": "emily@lemmon.com",
+      "password": "emily"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "userId": 1,
+      "title": "My first post",
+      "imageURL": "https://media.giphy.com/media/3oz8xyUoD2HlTIcdTW/giphy.gif",
+      "description": "Jianbing butcher post-ironic brunch marfa, listicle quinoa kickstarter vinyl poke cornhole snackwave yr flexitarian.",
+      "timestamp": 1508080619498
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "title": "Dinner",
+      "imageURL": "https://media.giphy.com/media/4RslNp4SUqAoM/giphy.gif",
+      "description": "Messenger bag hella gochujang adaptogen, aesthetic sartorial before they sold out franzen sustainable thundercats.",
+      "timestamp": 1497580619498
+    },
+    {
+      "id": 3,
+      "userId": 2,
+      "title": "Graduation!",
+      "imageURL": "https://media.giphy.com/media/lSPlEENLTonvclZP44/giphy.gif",
+      "description": "Pop-up biodiesel pickled crucifix. Tousled succulents banjo bicycle rights.",
+      "timestamp": 1528720619498
+    },
+    {
+      "title": "Learning JavaScript",
+      "imageURL": "https://media.giphy.com/media/S9dN7OWFj8GoRhTIuL/giphy-downsized.gif",
+      "description": "Ethical chillwave jianbing ramps plaid subway tile.",
+      "userId": 2,
+      "timestamp": 1617396786968,
+      "id": 4
+    },
+    {
+      "title": "Me trying to decipher this code",
+      "imageURL": "https://media0.giphy.com/media/PacQUjx7vwEBJLszzc/giphy.gif?cid=790b7611da0d83c6e5c499b062a42569c0662e03aa02b1b2&rid=giphy.gif&ct=g",
+      "description": "",
+      "userId": 5,
+      "timestamp": 1636488617079,
+      "id": 5
+    },
+    {
+      "title": "Love you Bob",
+      "imageURL": "https://media.giphy.com/media/aysBMSvOiagPm/giphy.gif",
+      "description": "Bob is a dope individual ",
+      "userId": 4,
+      "timestamp": 1636488647654,
+      "id": 6
+    },
+    {
+      "title": "WOW",
+      "imageURL": "https://tenor.com/view/wao-wow-gif-22908688",
+      "description": "thoughts behind the code....",
+      "userId": 3,
+      "timestamp": 1636488727579,
+      "id": 7
+    },
+    {
+      "title": "original gif i found on my own ",
+      "imageURL": "https://media4.giphy.com/media/boj7PRvJOpIT6/giphy-downsized.gif?cid=6104955e78b79bb47ad15330b2ad9a191d8d931704ce6081&rid=giphy-downsized.gif&ct=g",
+      "description": "if you see this posted anywhere it was probably copied from me ",
+      "userId": 3,
+      "timestamp": 1636488757019,
+      "id": 8
+    },
+    {
+      "title": "another original ",
+      "imageURL": "https://media1.giphy.com/media/11dgYWwHnEFomQ/giphy.gif?cid=6104955eee646d009805077e7079b0cace623ea84cd58ca9&rid=giphy.gif&ct=g",
+      "description": "hungry cat -- please do not steal and share my gifs",
+      "userId": 3,
+      "timestamp": 1636488802424,
+      "id": 9
+    },
+    {
+      "title": "all done",
+      "imageURL": "https://media.giphy.com/media/jJxaUysjzO9ri/giphy.gif",
+      "description": "ahhh ",
+      "userId": 3,
+      "timestamp": 1636488811297,
+      "id": 10
+    },
+    {
+      "title": "Love pooh thought of this on on the fly ",
+      "imageURL": "https://media.giphy.com/gifsu/8ni4v3bcnqXYIAEirH/giphy-caption.gif?cid=6104955eb87d952042f06a7f4130470f3446becbb4ff356e&rid=giphy-caption.gif&ct=g",
+      "description": "an original by me ",
+      "userId": 3,
+      "timestamp": 1636488843711,
+      "id": 11
+    },
+    {
+      "title": "Lol",
+      "imageURL": "huehueh",
+      "description": "Lolz i so random I can haz cheezburger",
+      "userId": 4,
+      "timestamp": 1636490751853,
+      "id": 13
+    },
+    {
+      "title": "",
+      "imageURL": "",
+      "description": "",
+      "userId": 5,
+      "timestamp": 1636495091643,
+      "id": 14
+    }
+  ],
+  "likes": [
+    {
+      "id": 1,
+      "userId": 1,
+      "postId": 2
+    },
+    {
+      "id": 2,
+      "userId": 3,
+      "postId": 2
+    },
+    {
+      "id": 3,
+      "userId": 2,
+      "postId": 1
+    },
+    {
+      "userId": 3,
+      "postId": 4,
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "postId": 9,
+      "id": 6
+    },
+    {
+      "userId": 1,
+      "postId": 9,
+      "id": 7
+    },
+    {
+      "userId": 1,
+      "postId": 9,
+      "id": 8
+    },
+    {
+      "userId": 1,
+      "postId": 9,
+      "id": 9
+    },
+    {
+      "userId": 1,
+      "postId": 9,
+      "id": 10
+    },
+    {
+      "userId": 1,
+      "postId": 9,
+      "id": 11
+    },
+    {
+      "userId": 1,
+      "postId": 9,
+      "id": 12
+    },
+    {
+      "userId": 1,
+      "postId": 9,
+      "id": 13
+    },
+    {
+      "userId": 1,
+      "postId": 9,
+      "id": 14
+    },
+    {
+      "userId": 1,
+      "postId": 9,
+      "id": 15
+    },
+    {
+      "userId": 1,
+      "postId": 9,
+      "id": 16
+    },
+    {
+      "userId": 1,
+      "postId": 9,
+      "id": 17
+    },
+    {
+      "userId": 1,
+      "postId": 9,
+      "id": 18
+    },
+    {
+      "userId": 1,
+      "postId": 9,
+      "id": 19
+    },
+    {
+      "userId": 1,
+      "postId": 9,
+      "id": 20
+    },
+    {
+      "userId": 1,
+      "postId": 9,
+      "id": 21
+    },
+    {
+      "userId": 3,
+      "postId": 6,
+      "id": 22
+    },
+    {
+      "userId": 5,
+      "postId": 11,
+      "id": 23
+    },
+    {
+      "userId": 3,
+      "postId": 13,
+      "id": 24
+    },
+    {
+      "userId": 3,
+      "postId": 5,
+      "id": 25
+    },
+    {
+      "userId": 3,
+      "postId": 5,
+      "id": 26
+    },
+    {
+      "userId": 3,
+      "postId": 5,
+      "id": 27
+    },
+    {
+      "userId": 3,
+      "postId": 5,
+      "id": 28
+    },
+    {
+      "userId": 3,
+      "postId": 4,
+      "id": 29
+    },
+    {
+      "userId": 3,
+      "postId": 6,
+      "id": 30
+    },
+    {
+      "userId": 3,
+      "postId": 6,
+      "id": 31
+    },
+    {
+      "userId": 3,
+      "postId": 13,
+      "id": 32
+    },
+    {
+      "userId": 3,
+      "postId": 10,
+      "id": 33
+    },
+    {
+      "userId": 3,
+      "postId": 6,
+      "id": 34
+    },
+    {
+      "userId": 3,
+      "postId": 6,
+      "id": 35
+    },
+    {
+      "userId": 3,
+      "postId": 6,
+      "id": 36
+    }
+  ],
+  "messages": [
+    {
+      "userId": 2,
+      "recipientId": 3,
+      "text": "Selvage la croix prism truffaut cray offal lumbersexual bespoke skateboard. Next level chia enamel pin, wayfarers copper mug jean shorts leggings.",
+      "read": true,
+      "id": 1
+    },
+    {
+      "userId": 2,
+      "recipientId": 3,
+      "text": "Occupy pour-over chambray pitchfork woke vinyl. Drinking vinegar humblebrag banh mi lo-fi fanny pack hella cred 3 wolf moon air plant bitters meggings man braid migas narwhal. Tacos chia neutra, tumeric semiotics raw denim cardigan single-origin coffee health goth mlkshk coloring book vinyl schlitz.",
+      "read": true,
+      "id": 2
+    },
+    {
+      "userId": 3,
+      "recipientId": 3,
+      "text": "Poke church-key single-origin coffee art party stumptown hoodie, vice offal. Chambray intelligentsia DIY portland kogi. Meh hexagon pug everyday carry brooklyn poutine knausgaard ugh.",
+      "read": true,
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "recipientId": 2,
+      "text": "Live-edge marfa williamsburg lomo la croix organic etsy seitan pop-up messenger bag iceland. Meggings 3 wolf moon street art, dreamcatcher slow-carb selvage butcher. Cliche snackwave art party, biodiesel flexitarian jianbing ramps disrupt neutra sriracha street art flannel tattooed keffiyeh.",
+      "read": true,
+      "id": 4
+    },
+    {
+      "userId": 2,
+      "recipientId": 6,
+      "text": "Where did you find that?",
+      "read": true,
+      "id": 5
+    },
+    {
+      "userId": 4,
+      "recipientId": 6,
+      "text": "Hi, Emily, I love your new gif",
+      "read": true,
+      "id": 6
+    },
+    {
+      "userId": 4,
+      "recipientId": 1,
+      "text": "Ray, that Santa looks just like you.",
+      "read": true,
+      "id": 7
+    },
+    {
+      "userId": 4,
+      "recipientId": 3,
+      "read": true,
+      "id": 8
+    },
+    {
+      "userId": 4,
+      "recipientId": 3,
+      "read": true,
+      "id": 9
+    },
+    {
+      "userId": 4,
+      "recipientId": 3,
+      "read": true,
+      "id": 10
+    },
+    {
+      "userId": 3,
+      "recipientId": 3,
+      "read": true,
+      "id": 11
+    },
+    {
+      "userId": 3,
+      "recipientId": 2,
+      "read": true,
+      "id": 12
+    },
+    {
+      "userId": 3,
+      "recipientId": 1,
+      "read": true,
+      "id": 13
+    },
+    {
+      "userId": 3,
+      "recipientId": 5,
+      "read": true,
+      "id": 14
+    },
+    {
+      "userId": 3,
+      "recipientId": 6,
+      "read": true,
+      "id": 15
+    },
+    {
+      "userId": 3,
+      "recipientId": null,
+      "message": "sup fam",
+      "id": 16
+    },
+    {
+      "userId": 3,
+      "recipientId": 1,
+      "read": true,
+      "id": 17
+    },
+    {
+      "userId": 3,
+      "recipientId": 2,
+      "read": true,
+      "id": 18
+    },
+    {
+      "userId": 3,
+      "recipientId": 2,
+      "read": true,
+      "id": 19
+    },
+    {
+      "userId": 3,
+      "recipientId": 3,
+      "read": true,
+      "id": 20
+    },
+    {
+      "userId": 3,
+      "recipientId": 4,
+      "read": true,
+      "id": 21
+    },
+    {
+      "userId": 3,
+      "recipientId": 5,
+      "read": true,
+      "id": 22
+    },
+    {
+      "userId": 3,
+      "recipientId": 6,
+      "read": true,
+      "id": 23
+    },
+    {
+      "userId": 1,
+      "recipientId": 6,
+      "read": true,
+      "id": 24
+    },
+    {
+      "userId": 1,
+      "recipientId": 6,
+      "read": true,
+      "id": 25
+    },
+    {
+      "userId": 1,
+      "recipientId": 6,
+      "read": true,
+      "id": 26
+    },
+    {
+      "userId": 3,
+      "recipientId": 2,
+      "message": "",
+      "id": 27
+    },
+    {
+      "userId": 3,
+      "recipientId": null,
+      "message": "",
+      "id": 28
+    },
+    {
+      "userId": 1,
+      "recipientId": 2,
+      "message": "message",
+      "id": 29
+    },
+    {
+      "userId": 1,
+      "recipientId": 2,
+      "message": "message",
+      "id": 30
+    },
+    {
+      "userId": 1,
+      "recipientId": 2,
+      "message": "message",
+      "id": 31
+    },
+    {
+      "userId": 1,
+      "recipientId": 2,
+      "message": "message",
+      "id": 32
+    },
+    {
+      "userId": 3,
+      "recipientId": 1,
+      "read": true,
+      "id": 33
+    },
+    {
+      "userId": 3,
+      "recipientId": 2,
+      "message": " ljl",
+      "id": 34
+    }
+  ],
+  "follows": [
+    {
+      "id": 1,
+      "userId": 1,
+      "followingId": 2
+    },
+    {
+      "id": 2,
+      "userId": 3,
+      "followingId": 2
+    },
+    {
+      "id": 3,
+      "userId": 2,
+      "followingId": 1
+    }
+  ]
 }
