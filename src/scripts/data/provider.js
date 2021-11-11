@@ -18,6 +18,10 @@ export const getUsers = () => {
     return applicationState.users.map((user) => ({ ...user }))
 }
 
+export const getLikes = () => {
+    return applicationState.likes.map((like) => ({ ...like }))
+}
+
 export const fetchUsers = () => {
     return fetch(`${apiURL}/users`)
         .then(response => response.json())
@@ -25,6 +29,17 @@ export const fetchUsers = () => {
             (serviceRequests) => {
                 // Store the external state in application state
                 applicationState.users = serviceRequests
+            }
+        )
+}
+
+export const fetchLikes = () => {
+    return fetch(`${apiURL}/likes`)
+        .then(response => response.json())
+        .then(
+            (likesArray) => {
+                // Store the external state in application state
+                applicationState.likes = likesArray
             }
         )
 }
@@ -44,6 +59,27 @@ export const sendPostMessage = (userPostCreation) => {
         })
 }
 
+export const deletelike = (id) => {
+    return fetch(`${apiURL}/likes/${id}` ,{ method: "DELETE"})
+        .then(() => {
+            applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
+        })
+}
+
+export const addtolikes = (userlikedpost) => {
+    const fetchOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userlikedpost)
+    }
+    return fetch(`${apiURL}/likes`, fetchOptions)
+        .then(response => response.json())
+        .then(() => {
+            applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
+        })
+}
 // create copy of POSTS from db to appState & serve copy in getPosts
 
 export const fetchPosts = () => {
@@ -96,5 +132,16 @@ export const getPosts = () => {
     sortByTimeStamp()
 
     return postsArr
+
+}
+
+export const likedposts = () => {
+    const likes = getLikes()
+    const user = parseInt(localStorage.getItem("gg_user"))
+    const likesByUser = likes.filter((like) => {
+        return user === like.userId
+    })
+
+    return likesByUser
 
 }

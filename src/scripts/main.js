@@ -1,6 +1,6 @@
 import { GiffyGram } from "./GiffyGram.js"
 import { LoginForm } from "./auth/Login.js"
-import { fetchPosts, fetchUsers } from "./data/provider.js"
+import { fetchLikes, fetchPosts, fetchUsers } from "./data/provider.js"
 
 const applicationElement = document.querySelector(".giffygram")
 
@@ -16,7 +16,8 @@ export const renderApp = () => {
 
 const loadPage = () => {
     fetchUsers()
-        .then (() => fetchPosts())
+        .then(() => fetchPosts())
+        .then(()=> fetchLikes())
         .then(() => {
             return renderApp()
         }
