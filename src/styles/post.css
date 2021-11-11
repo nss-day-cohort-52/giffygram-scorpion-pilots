@@ -73,3 +73,8 @@
     flex-direction: row;
     justify-content: center;
 }
+
+.fav_iconblank {
+    height: 20px;
+    width: 20px
+}

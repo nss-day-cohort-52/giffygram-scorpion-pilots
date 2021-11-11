@@ -1,5 +1,17 @@
 import { getPosts } from "../data/provider.js"
 
+document.addEventListener(
+    "click",
+    clickevent => {
+        if(clickevent.target.id === "fav_iconblank"){
+            
+                document.getElementById("fav").innerHTML = `<img id="fav_iconyellow" class="fav_iconblank"src="${"./../images/favorite-star-yellow.svg"}" alt="favorite icon" />`
+    }
+        if(clickevent.target.id === "fav_iconyellow"){
+            document.getElementById("fav").innerHTML = `<img id="fav_iconblank" class="fav_iconblank"src="${"./../images/favorite-star-blank.svg"}" alt="favorite icon" />`
+        }
+    })
+
 export const PostList = () => {
 
     const posts = getPosts()
@@ -27,7 +39,10 @@ export const PostList = () => {
             <div class='post__date'>
                 Posted on ${getDate()}
             </div>
-        `
+            <div id="fav">
+            <img id="fav_iconblank" class="faviconblank__${post.id}"src="${"./../images/favorite-star-blank.svg"}" alt="favorite icon" />
+            </div>
+            `
     }
     
     // Show main main UI
