@@ -1,4 +1,13 @@
-import { getPosts } from "../data/provider.js"
+import { getPosts, deletePosts } from "../data/provider.js"
+
+const applicationElement = document.querySelector(".giffygram")
+
+applicationElement.addEventListener("click", click => {
+    if (click.target.id.startsWith("blockPost")) {
+        const [,postId] = click.target.id.split("--")
+        deletePosts(parseInt(postId))
+    }
+})
 
 export const PostList = () => {
 
@@ -27,6 +36,7 @@ export const PostList = () => {
             <div class='post__date'>
                 Posted on ${getDate()}
             </div>
+            <img id="blockPost--${post.id}" class="actionIcon" src="https://bit.ly/30liC6T">
         `
     }
     
