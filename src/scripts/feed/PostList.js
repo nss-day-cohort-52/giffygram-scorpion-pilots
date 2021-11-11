@@ -1,4 +1,4 @@
-import { addtolikes, getLikes, getPosts, likedposts, deletelike } from "../data/provider.js"
+import { addtolikes, getLikes, getPosts, likedposts, deletelike, deletePosts } from "../data/provider.js"
 
 document.addEventListener(
     "click",
@@ -19,8 +19,18 @@ document.addEventListener(
     }
 )
 
+const applicationElement = document.querySelector(".giffygram")
+
+applicationElement.addEventListener("click", click => {
+    if (click.target.id.startsWith("blockPost")) {
+        const [, postId] = click.target.id.split("--")
+        deletePosts(parseInt(postId))
+    }
+})
+
 export const PostList = () => {
 
+    const user = parseInt(localStorage.getItem("gg_user"))
     const posts = getPosts()
     const likes = getLikes()
     const user = parseInt(localStorage.getItem("gg_user"))
@@ -28,6 +38,7 @@ export const PostList = () => {
     const likesByUser = likes.filter((like) => {
         return user === like.userId
     })
+
 
     const displayPosts = (post) => {
 
@@ -39,6 +50,7 @@ export const PostList = () => {
             const date = new Date(post.timestamp)
             return date.toLocaleDateString('en-US')
         }
+
 
         //convert posts data to visible html
 
@@ -59,9 +71,13 @@ export const PostList = () => {
             <div id="fav_${post.id}">
             ${likedpost ? `<img id="fav_iconyellow--${post.id}" class="faviconyellow_${post.id} fav_icon post__actions"src="${"./../images/favorite-star-yellow.svg"}" alt="favorite icon" />` : `<img id="fav_iconblank--${post.id}" class="faviconblank__${post.id} fav_icon post__actions"src="${"./../images/favorite-star-blank.svg"}" alt="favorite icon" />`}
             </div>
+            ${user === post.userId ? `<img id="blockPost--${post.id}" class="actionIcon" src="./images/block.svg">` : ""}
             </div>
             `
-    }
+    
+
+
+
 
     // Show main main UI
 
@@ -72,4 +88,5 @@ export const PostList = () => {
         </section>
     `
     return postsHTML
+}
 }

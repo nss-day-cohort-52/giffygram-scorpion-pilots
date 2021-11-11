@@ -93,6 +93,18 @@ export const fetchPosts = () => {
         )
 }
 
+
+export const deletePosts = (id) => {
+    return fetch(`${apiURL}/posts/${id}`, { method: "DELETE" })
+        .then(
+            () => {
+                applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
+            }
+        )
+}
+
+
+
 export const getPosts = () => {
 
     const postsArr = applicationState.posts.map((post) => {
