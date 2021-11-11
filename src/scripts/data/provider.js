@@ -10,11 +10,16 @@ const applicationState = {
         displayMessages: false
     },
     "users": [],
-    "posts": []
+    "posts": [],
+    "likes": []
 }
 
 export const getUsers = () => {
     return applicationState.users.map((user) => ({ ...user }))
+}
+
+export const getLikes = () => {
+    return applicationState.likes.map((like) => ({ ...like }))
 }
 
 export const fetchUsers = () => {
@@ -28,6 +33,17 @@ export const fetchUsers = () => {
         )
 }
 
+export const fetchLikes = () => {
+    return fetch(`${apiURL}/likes`)
+        .then(response => response.json())
+        .then(
+            (likesArray) => {
+                // Store the external state in application state
+                applicationState.likes = likesArray
+            }
+        )
+}
+
 export const sendPostMessage = (userPostCreation) => {
     const fetchOptions = {
         method: "POST",
@@ -37,6 +53,28 @@ export const sendPostMessage = (userPostCreation) => {
         body: JSON.stringify(userPostCreation)
     }
     return fetch(`${apiURL}/posts`, fetchOptions)
+        .then(response => response.json())
+        .then(() => {
+            applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
+        })
+}
+
+export const deletelike = (id) => {
+    return fetch(`${apiURL}/likes/${id}` ,{ method: "DELETE"})
+        .then(() => {
+            applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
+        })
+}
+
+export const addtolikes = (userlikedpost) => {
+    const fetchOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userlikedpost)
+    }
+    return fetch(`${apiURL}/likes`, fetchOptions)
         .then(response => response.json())
         .then(() => {
             applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
@@ -95,5 +133,16 @@ export const getPosts = () => {
     sortByTimeStamp()
 
     return postsArr
+
+}
+
+export const likedposts = () => {
+    const likes = getLikes()
+    const user = parseInt(localStorage.getItem("gg_user"))
+    const likesByUser = likes.filter((like) => {
+        return user === like.userId
+    })
+
+    return likesByUser
 
 }
