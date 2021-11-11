@@ -10,7 +10,10 @@ export const Footer = () => {
                 POSTS BY USER ...
             </div>
             <div class='footer__item'>
-                POSTS BY FAVORITES ...
+                <input type='checkbox' id=showFavorites' name='showFavorites' value='showFavorites'>
+                <label for='showFavorites'>
+                    Show only favorites
+                </label>
             </div>
         </section>
     `

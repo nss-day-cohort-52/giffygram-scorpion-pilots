@@ -10,7 +10,8 @@ const applicationState = {
         displayMessages: false
     },
     "users": [],
-    "posts": []
+    "posts": [],
+    "likes": []
 }
 
 export const getUsers = () => {
@@ -56,7 +57,6 @@ export const fetchPosts = () => {
         )
 }
 
-
 export const deletePosts = (id) => {
     return fetch(`${apiURL}/posts/${id}`, { method: "DELETE" })
         .then(
@@ -66,9 +66,9 @@ export const deletePosts = (id) => {
         )
 }
 
-
-
 export const getPosts = () => {
+
+    const 
 
     const postsArr = applicationState.posts.map((post) => {
 
