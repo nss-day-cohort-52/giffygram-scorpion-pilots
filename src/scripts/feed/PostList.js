@@ -33,7 +33,6 @@ export const PostList = () => {
     const user = parseInt(localStorage.getItem("gg_user"))
     const posts = getPosts()
     const likes = getLikes()
-    const user = parseInt(localStorage.getItem("gg_user"))
 
     const likesByUser = likes.filter((like) => {
         return user === like.userId
@@ -68,13 +67,17 @@ export const PostList = () => {
             <div class='post__date'>
                 Posted by ${post.userName} on ${getDate()}
             </div>
+            <div class="actionitems">
             <div id="fav_${post.id}">
-            ${likedpost ? `<img id="fav_iconyellow--${post.id}" class="faviconyellow_${post.id} fav_icon post__actions"src="${"./../images/favorite-star-yellow.svg"}" alt="favorite icon" />` : `<img id="fav_iconblank--${post.id}" class="faviconblank__${post.id} fav_icon post__actions"src="${"./../images/favorite-star-blank.svg"}" alt="favorite icon" />`}
+            ${likedpost ? `<img id="fav_iconyellow--${post.id}" class="faviconyellow_${post.id} actionIcon"src="${"./../images/favorite-star-yellow.svg"}" alt="favorite icon" />` : `<img id="fav_iconblank--${post.id}" class="faviconblank__${post.id} actionIcon"src="${"./../images/favorite-star-blank.svg"}" alt="favorite icon" />`}
             </div>
+            <div>
             ${user === post.userId ? `<img id="blockPost--${post.id}" class="actionIcon" src="./images/block.svg">` : ""}
             </div>
+            </div>
+            </div>
             `
-    
+    }
 
 
 
@@ -88,5 +91,5 @@ export const PostList = () => {
         </section>
     `
     return postsHTML
-}
+
 }
