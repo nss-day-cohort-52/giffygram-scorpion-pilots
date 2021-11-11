@@ -1,6 +1,4 @@
 .footer {
-    display: flex;
-    flex-wrap: nowrap;
     justify-content: start;
     border-bottom: 1px solid lightblue;
     padding: 0.5em 0 0.5em 1em;
@@ -11,6 +9,14 @@
     width: 100%;
     background-color: whitesmoke;
     margin: auto;
+}
+
+.footer__nav {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 0 auto;
+    justify-content: space-between;
+    width: 95%;
 }
 
 .footer__item {

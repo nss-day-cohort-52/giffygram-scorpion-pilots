@@ -42,6 +42,7 @@ export const sendPostMessage = (userPostCreation) => {
         applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
     })
 }
+
 // create copy of POSTS from db to appState & serve copy in getPosts
 
 export const fetchPosts = () => {
@@ -54,20 +55,6 @@ export const fetchPosts = () => {
             }
         )
 }
-
-/*
-export const getPosts = () => {
-    const postsArr = applicationState.posts.map((post) => ({...post}))
-    const sortByTimeStamp = postsArr => {
-        const sorter = (a, b) => {
-            return new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
-        }
-        postsArr.sort(sorter)
-    }
-    sortByTimeStamp(postsArr)
-    return postsArr
-}
-*/
 
 export const getPosts = () => {
 
