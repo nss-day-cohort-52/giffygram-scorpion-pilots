@@ -75,6 +75,11 @@
     justify-content: center;
 }
 
+.fav_icon {
+    height: 20px;
+    width: 20px;
+}
+
 
 .ninja {
     padding: 1rem;
@@ -83,4 +88,8 @@
     border-radius: 0.5rem;
     text-align: center;
     cursor: pointer;
+}
+
+.actionitems {
+    display: flex
 }
