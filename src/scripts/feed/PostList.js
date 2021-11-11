@@ -4,7 +4,7 @@ const applicationElement = document.querySelector(".giffygram")
 
 applicationElement.addEventListener("click", click => {
     if (click.target.id.startsWith("blockPost")) {
-        const [,postId] = click.target.id.split("--")
+        const [, postId] = click.target.id.split("--")
         deletePosts(parseInt(postId))
     }
 })
@@ -23,7 +23,7 @@ export const PostList = () => {
             return date.toLocaleDateString('en-US')
         }
 
-        
+
         //convert posts data to visible html
 
         return `
@@ -39,19 +39,18 @@ export const PostList = () => {
             <div class='post__date'>
                 Posted by ${post.userName} on ${getDate()}
             </div>
-            ${user === post.userId? `<img id="blockPost--${post.id}" class="actionIcon" src="./images/block.svg">` : ""}
+            ${user === post.userId ? `<img id="blockPost--${post.id}" class="actionIcon" src="./images/block.svg">` : ""}
         `
     }
 
-    
-    
+
+
     // Show main main UI
-    
-    let postsHTML =`
+
+    let postsHTML = `
         <section class='post'>
-            ${
-                posts.map(displayPosts).join("")
-            }
+            ${posts.map(displayPosts).join("")
+        }
         </section>
     `
     return postsHTML
