@@ -25,7 +25,7 @@ export const PostList = () => {
                 ${post.description}
             </div>
             <div class='post__date'>
-                Posted on ${getDate()}
+                Posted by ${post.userName} on ${getDate()}
             </div>
         `
     }
