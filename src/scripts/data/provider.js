@@ -11,7 +11,8 @@ const applicationState = {
     },
     "users": [],
     "posts": [],
-    "likes": []
+    "likes": [],
+    "messages": []
 }
 
 export const getUsers = () => {
@@ -20,6 +21,10 @@ export const getUsers = () => {
 
 export const getLikes = () => {
     return applicationState.likes.map((like) => ({ ...like }))
+}
+
+export const getMessages = () => {
+    return applicationState.messages.map((message) => ({ ...message }))
 }
 
 export const fetchUsers = () => {
@@ -40,6 +45,17 @@ export const fetchLikes = () => {
             (likesArray) => {
                 // Store the external state in application state
                 applicationState.likes = likesArray
+            }
+        )
+}
+
+export const fetchMessages = () => {
+    return fetch(`${apiURL}/messages`)
+        .then(response => response.json())
+        .then(
+            (messagesArray) => {
+                // Store the external state in application state
+                applicationState.messages = messagesArray
             }
         )
 }
