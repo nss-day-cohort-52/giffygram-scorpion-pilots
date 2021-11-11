@@ -14,7 +14,7 @@ const applicationState = {
 }
 
 export const getUsers = () => {
-    return applicationState.users.map((user) => ({...user}))
+    return applicationState.users.map((user) => ({ ...user }))
 }
 
 export const fetchUsers = () => {
@@ -37,10 +37,10 @@ export const sendPostMessage = (userPostCreation) => {
         body: JSON.stringify(userPostCreation)
     }
     return fetch(`${apiURL}/posts`, fetchOptions)
-    .then(response => response.json())
-    .then( () => {
-        applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
-    })
+        .then(response => response.json())
+        .then(() => {
+            applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
+        })
 }
 
 // create copy of POSTS from db to appState & serve copy in getPosts
@@ -56,30 +56,42 @@ export const fetchPosts = () => {
         )
 }
 
+
+export const deletePosts = (id) => {
+    return fetch(`${apiURL}/posts/${id}`, { method: "DELETE" })
+        .then(
+            () => {
+                applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
+            }
+        )
+}
+
+
+
 export const getPosts = () => {
 
     const postsArr = applicationState.posts.map((post) => {
 
-    const modifiedCopyOfArray = {...post}
+        const modifiedCopyOfArray = { ...post }
 
-    const foundUser = applicationState.users.find((user) =>user.id === post.userId )
+        const foundUser = applicationState.users.find((user) => user.id === post.userId)
 
-    if (foundUser) {
-        modifiedCopyOfArray.userName = `${foundUser.name}`
-    }
-    
-    return modifiedCopyOfArray
-    
-})
+        if (foundUser) {
+            modifiedCopyOfArray.userName = `${foundUser.name}`
+        }
+
+        return modifiedCopyOfArray
+
+    })
 
     const sortByTimeStamp = modifiedCopyOfArray => {
 
         const sorter = (a, b) => {
 
-        return new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
+            return new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
+        }
+        postsArr.sort(sorter)
     }
-    postsArr.sort(sorter)
-}
 
     sortByTimeStamp()
 
