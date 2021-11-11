@@ -1,6 +1,5 @@
 import { sendPostMessage } from "../data/provider.js";
 
-
 document.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "newPost_submit") {
         const userPostTitle = document.querySelector("input[name='postTitle']").value
@@ -22,25 +21,45 @@ document.addEventListener("click", clickEvent => {
         document.querySelector("input[name='postTitle']").value = ""
         document.querySelector("input[name='postURL']").value = ""
         document.querySelector("textarea[name='postDescription']").value = ""
+
+        document.getElementById("newPost").innerHTML = 
+        `<div id="ninja" class="ninja">Have a gif to post?</div>`
     }
 } )
 
+document.addEventListener("click", ninjaClick => {
+    if (ninjaClick.target.id === "ninja") {
+        document.getElementById("newPost").innerHTML = `<div>                    
+        <input name="postTitle" class="newPost__input" type="text" autofocus placeholder="Title"/>
+    </div>
+    <div>
+        <input name="postURL" class="newPost__input" type="text" placeholder="URL of gif"/>
+    </div>
+    <textarea name="postDescription" class="newPost__input" placeholder="Story behind your gif..."></textarea>
+    
+    <button id="newPost_submit">Save</button>
+    <button id="newPost_cancel">Cancel</button>
+    `
+}
+document.dispatchEvent(new CustomEvent("stateChanged"))
+})
 
 
 export const PostEntry = () => {
     return `        
-        <div class="newPost">
-            <div>                    
-                <input name="postTitle" class="newPost__input" type="text" autofocus placeholder="Title"/>
-            </div>
-            <div>
-                <input name="postURL" class="newPost__input" type="text" placeholder="URL of gif"/>
-            </div>
-            <textarea name="postDescription" class="newPost__input" placeholder="Story behind your gif..."></textarea>
+        <div id="newPost" class="newPost">
             
-            <button id="newPost_submit">Save</button>
-            <button id="newPost_cancel">Cancel</button>
+        <div id="ninja" class="ninja">Have a gif to post?</div>
         </div>
+        
         `
     }
-    //<div class="miniMode">Have a gif to post?</div>
+
+
+
+
+
+
+
+
+

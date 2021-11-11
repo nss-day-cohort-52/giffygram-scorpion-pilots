@@ -55,15 +55,45 @@ export const fetchPosts = () => {
         )
 }
 
-export const getPosts = () => {
-    return applicationState.posts.map((post) => ({...post}))
-}
 
 export const deletePosts = (id) => {
     return fetch(`${apiURL}/posts/${id}`, { method: "DELETE" })
-        .then(
-            () => {
-                applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
-            }
+    .then(
+        () => {
+            applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
+        }
         ) 
+    }
+    
+
+
+export const getPosts = () => {
+
+    const postsArr = applicationState.posts.map((post) => {
+
+    const modifiedCopyOfArray = {...post}
+
+    const foundUser = applicationState.users.find((user) =>user.id === post.userId )
+
+    if (foundUser) {
+        modifiedCopyOfArray.userName = `${foundUser.name}`
+    }
+    
+    return modifiedCopyOfArray
+    
+})
+
+    const sortByTimeStamp = modifiedCopyOfArray => {
+
+        const sorter = (a, b) => {
+
+        return new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
+    }
+    postsArr.sort(sorter)
+}
+
+    sortByTimeStamp()
+
+    return postsArr
+
 }

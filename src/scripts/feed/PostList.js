@@ -1,4 +1,4 @@
-import { getPosts, deletePosts } from "../data/provider.js"
+import { getPosts, deletePosts, getUsers } from "../data/provider.js"
 
 const applicationElement = document.querySelector(".giffygram")
 
@@ -12,6 +12,7 @@ applicationElement.addEventListener("click", click => {
 export const PostList = () => {
 
     const posts = getPosts()
+    const user = getUsers()
 
     const displayPosts = (post) => {
 
@@ -34,11 +35,13 @@ export const PostList = () => {
                 ${post.description}
             </div>
             <div class='post__date'>
-                Posted on ${getDate()}
+                Posted by ${post.userName} on ${getDate()}
             </div>
-            <img id="blockPost--${post.id}" class="actionIcon" src="https://bit.ly/30liC6T">
+            <img id="blockPost--${user.id}" class="actionIcon" src="./images/block.svg">
         `
     }
+
+    
     
     // Show main main UI
     

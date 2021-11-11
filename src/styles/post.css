@@ -63,7 +63,8 @@
 }
 
 .post__tagline,
-.post__tagline {
+.post__user,
+.post__date {
     font-size: 1.0em;
     margin: 1em 0 0.5em 0;
 }
@@ -72,4 +73,14 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+}
+
+
+.ninja {
+    padding: 1rem;
+    margin: 0 25%;
+    border: 1px dashed slategrey;
+    border-radius: 0.5rem;
+    text-align: center;
+    cursor: pointer;
 }
