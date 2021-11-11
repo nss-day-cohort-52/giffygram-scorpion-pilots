@@ -1,4 +1,4 @@
-import { getPosts, deletePosts, getUsers } from "../data/provider.js"
+import { getPosts, deletePosts } from "../data/provider.js"
 
 const applicationElement = document.querySelector(".giffygram")
 
@@ -11,8 +11,9 @@ applicationElement.addEventListener("click", click => {
 
 export const PostList = () => {
 
+    const user = parseInt(localStorage.getItem("gg_user"))
     const posts = getPosts()
-    const user = getUsers()
+
 
     const displayPosts = (post) => {
 
@@ -22,6 +23,7 @@ export const PostList = () => {
             return date.toLocaleDateString('en-US')
         }
 
+        
         //convert posts data to visible html
 
         return `
@@ -37,7 +39,7 @@ export const PostList = () => {
             <div class='post__date'>
                 Posted by ${post.userName} on ${getDate()}
             </div>
-            <img id="blockPost--${user.id}" class="actionIcon" src="./images/block.svg">
+            ${user === post.userId? `<img id="blockPost--${post.id}" class="actionIcon" src="./images/block.svg">` : ""}
         `
     }
 
@@ -54,3 +56,4 @@ export const PostList = () => {
     `
     return postsHTML
 }
+
