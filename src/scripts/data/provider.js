@@ -121,32 +121,50 @@ export const deletePosts = (id) => {
 export const getPosts = () => {
 
     const postsArr = applicationState.posts.map((post) => {
-
-        const modifiedCopyOfArray = { ...post }
+        
+        const modifiedCopyOfObj = { ...post }
 
         const foundUser = applicationState.users.find((user) => user.id === post.userId)
-
+        
         if (foundUser) {
-            modifiedCopyOfArray.userName = `${foundUser.name}`
+            modifiedCopyOfObj.userName = `${foundUser.name}`      
         }
+        
+        return modifiedCopyOfObj
 
-        return modifiedCopyOfArray
+    }) 
+    
+    if (applicationState.feed.displayFavorites === false) {
 
-    })
+        
+        return postsArr
 
-    const sortByTimeStamp = modifiedCopyOfArray => {
+    } else {
+        
+        const filteredPostsArr = postsArr.filter((modifiedCopyOfObj) => {
+        
+            const favorites = likedposts()
+        
+            const foundFavorite = favorites.find((favorite) => {
+        
+                return favorite.postId === modifiedCopyOfObj.id    
+        
+            })
+        
+            if (foundFavorite) {
+                return true
+            } else {
+                return false
+            }
+                
+        })
 
-        const sorter = (a, b) => {
+        return filteredPostsArr
 
-            return new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
-        }
-        postsArr.sort(sorter)
     }
 
-    sortByTimeStamp()
 
-    return postsArr
-
+    
 }
 
 export const likedposts = () => {
@@ -158,4 +176,13 @@ export const likedposts = () => {
 
     return likesByUser
 
+}
+
+export const getDisplayFavorites = () => {
+    return applicationState.feed.displayFavorites
+}
+
+export const setDisplayFavorites = (choice) => {
+    applicationState.feed.displayFavorites = choice
+    applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
 }

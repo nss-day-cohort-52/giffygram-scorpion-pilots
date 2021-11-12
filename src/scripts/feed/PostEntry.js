@@ -29,17 +29,21 @@ document.addEventListener("click", clickEvent => {
 
 document.addEventListener("click", ninjaClick => {
     if (ninjaClick.target.id === "ninja") {
-        document.getElementById("newPost").innerHTML = `<div>                    
-        <input name="postTitle" class="newPost__input" type="text" autofocus placeholder="Title"/>
-    </div>
-    <div>
-        <input name="postURL" class="newPost__input" type="text" placeholder="URL of gif"/>
-    </div>
-    <textarea name="postDescription" class="newPost__input" placeholder="Story behind your gif..."></textarea>
-    
-    <button id="newPost_submit">Save</button>
-    <button id="newPost_cancel">Cancel</button>
-    `
+        document.getElementById("newPost").innerHTML = `
+            <form>
+                <field>
+                    <input name="postTitle" class="newPost__input" type="text" autofocus placeholder="Title" required />
+                </field>
+                <field>
+                    <input name="postURL" class="newPost__input" type="text" placeholder="URL of gif" required />
+                </field>
+                <field>
+                    <textarea name="postDescription" class="newPost__input" placeholder="Story behind your gif..." ></textarea>
+                </field>
+                <button type='submit' id="newPost_submit">Save</button>
+                <button id="newPost_cancel">Cancel</button>
+            </form>
+        `
 }
 document.dispatchEvent(new CustomEvent("stateChanged"))
 })
