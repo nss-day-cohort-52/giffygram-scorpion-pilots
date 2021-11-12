@@ -31,15 +31,15 @@ document.addEventListener("click", ninjaClick => {
     if (ninjaClick.target.id === "ninja") {
         document.getElementById("newPost").innerHTML = `
             <form>
-                <field>
-                    <input name="postTitle" class="newPost__input" type="text" autofocus placeholder="Title" required />
-                </field>
-                <field>
-                    <input name="postURL" class="newPost__input" type="text" placeholder="URL of gif" required />
-                </field>
-                <field>
+                <div>
+                    <input name="postTitle" class="newPost__input" type="text" autofocus placeholder="Title" />
+                </div>
+                <div>
+                    <input name="postURL" class="newPost__input" type="text" placeholder="URL of gif" />
+                </div>
+                <div>
                     <textarea name="postDescription" class="newPost__input" placeholder="Story behind your gif..." ></textarea>
-                </field>
+                </div>
                 <button type='submit' id="newPost_submit">Save</button>
                 <button id="newPost_cancel">Cancel</button>
             </form>
