@@ -2,7 +2,8 @@ import { PostList } from "./feed/PostList.js"
 import { PostEntry } from "./feed/PostEntry.js"
 import { Footer } from "./nav/Footer.js"
 import { NavBar } from "./nav/NavBar.js"
-import { getMessages, getPosts, getUsers } from "./data/provider.js"
+import { getFeed, getMessages, getPosts, getUsers } from "./data/provider.js"
+import { newMessage } from "./message/MessageForm.js"
 
 document.addEventListener(
     "click",
@@ -35,7 +36,7 @@ document.addEventListener(
 
 
 export const GiffyGram = () => {
-
+    const feed = getFeed()
     const setProfileHTMLs = localStorage.getItem("profile")
 
         let postsHTML = ""
@@ -45,6 +46,7 @@ export const GiffyGram = () => {
         <br>
         <br>
         <br>
+        ${feed.newMessage? newMessage() : ""}
         ${PostEntry()}
         <section id="postList" class='postList'>
             ${PostList()
@@ -62,6 +64,7 @@ export const GiffyGram = () => {
         <br>
         <br>
         <br>
+        ${newMessage()}
         ${PostEntry()}
         <section class="authorprofile">
             ${setProfileHTMLs}
