@@ -104,8 +104,6 @@ export const deletePosts = (id) => {
 
 export const getPosts = () => {
 
-    const 
-
     const postsArr = applicationState.posts.map((post) => {
 
         const modifiedCopyOfArray = { ...post }
