@@ -19,6 +19,8 @@ document.addEventListener(
     }
 )
 
+
+
 const applicationElement = document.querySelector(".giffygram")
 
 applicationElement.addEventListener("click", click => {
@@ -65,7 +67,7 @@ export const PostList = () => {
                 ${post.description}
             </div>
             <div class='post__date'>
-                Posted by ${post.userName} on ${getDate()}
+                Posted by <a href="" id="profile--${post.userId}">${post.userName} </a>on ${getDate()}
             </div>
             <div class="actionitems">
             <div id="fav_${post.id}">
