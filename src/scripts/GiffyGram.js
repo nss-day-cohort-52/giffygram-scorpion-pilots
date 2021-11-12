@@ -1,5 +1,6 @@
 import { PostList } from "./feed/PostList.js"
 import { PostEntry } from "./feed/PostEntry.js"
+import { Footer } from "./nav/Footer.js"
 import { NavBar } from "./nav/NavBar.js"
 import { getMessages, getPosts, getUsers } from "./data/provider.js"
 
@@ -48,6 +49,11 @@ export const GiffyGram = () => {
         <section id="postList" class='postList'>
             ${PostList()
         }
+        </section>
+        <section class='footer'>
+            ${
+                Footer()
+            }
         </section>
     `
     } else {

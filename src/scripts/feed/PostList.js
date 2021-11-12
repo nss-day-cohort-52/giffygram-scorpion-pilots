@@ -19,8 +19,6 @@ document.addEventListener(
     }
 )
 
-
-
 const applicationElement = document.querySelector(".giffygram")
 
 applicationElement.addEventListener("click", click => {
@@ -35,6 +33,16 @@ export const PostList = () => {
     const user = parseInt(localStorage.getItem("gg_user"))
     const posts = getPosts()
     const likes = getLikes()
+
+    // Sort posts to display most recent on top and oldest on bottom
+
+    const sortByDate = posts => {
+        const sorter = (a, b) => {
+            return new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
+        }
+        posts.sort(sorter)
+    }
+    sortByDate(posts)
 
     const likesByUser = likes.filter((like) => {
         return user === like.userId
@@ -51,7 +59,6 @@ export const PostList = () => {
             const date = new Date(post.timestamp)
             return date.toLocaleDateString('en-US')
         }
-
 
         //convert posts data to visible html
 
