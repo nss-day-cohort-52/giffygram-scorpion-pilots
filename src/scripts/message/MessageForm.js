@@ -18,6 +18,7 @@ document.addEventListener("click", clickevent => {
         }
 
         sendMessage(MessageToAPI)
+        window.alert("Message Sent")
     }
     if(clickevent.target.id === "newMessage_cancel"){
         setNewMessageState()
